@@ -2,7 +2,6 @@
 #include <string.h>
 
 int main() {
-
 char string[100];
 int c = 0, count[26] = {0}, x;
 
@@ -17,7 +16,7 @@ if (!file_pointer) {
 printf("File Opened Successfully\n");
 
 int j = 0;
-while (!feof(file_pointer)) {
+while (feof(file_pointer) == 0 && j < 100) {
     fscanf(file_pointer, "%c", &string[j]);
     j++;
 }
@@ -37,6 +36,13 @@ for(c=0; c<26; c++){
     printf("%c occurs %d times in the text \n", c + 'A', count[c]);
 }
 
-
+fclose(file_pointer);
   return 0;
 }
+
+//#include <stdio.h> 
+
+//int main() {
+//    printf("Hello World");
+//    return 0;
+//}
